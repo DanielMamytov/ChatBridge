@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>ChatBridge AI</title>
+    <style>
+        body { font-family: sans-serif; padding: 16px; background: #121212; color: white; }
+        textarea { width: 100%; height: 100px; background: #1e1e1e; color: white; padding: 10px; border: none; }
+        button { margin-top: 12px; padding: 10px 20px; background: #2196F3; color: white; border: none; }
+        #response { margin-top: 20px; background: #2a2a2a; padding: 16px; border-radius: 8px; }
+    </style>
+    <script>
+        function sendMessage() {
+          const message = document.getElementById('userInput').value;
+          if (message.trim() !== '') {
+            AndroidBridge.sendToAI(message);
+          }
+        }
+
+        function displayAIResponse(response) {
+          document.getElementById('response').innerText = response;
+        }
+    </script>
+</head>
+<body>
+<h2>Chat with AI</h2>
+<textarea id="userInput" placeholder="Type your message..."></textarea>
+<br>
+<button onclick="sendMessage()">Send</button>
+<div id="response">🤖 AI will respond here...</div>
+</body>
+</html>
